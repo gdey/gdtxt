@@ -1,0 +1,22 @@
+{
+	"category":"document"
+	,"elements":[
+		{
+			"category":"block"
+			,"type":"front-matter"
+			,"headers":{
+				"author" : "Gautam Dey <gautam.dey77@gmail.com"
+			}
+		}
+		,{
+			"category":"line"
+			,"type":"section"
+			,"title":["This is a simple article"]
+			,"elements":[
+				{
+					"category":"paragraph"
+					,"elements":[
+						"This is a simple article there really isn’t much to example. But, it is important\nto show that the markup is simple. And easy to use."
+					]
+			]
+}

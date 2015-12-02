@@ -6,24 +6,24 @@
 »
 
 § Introduction
-§§ What is gdmark
+§§ What is gdtxt
 
-GDMark is a plain text format for writing structured documents, based on my
+gdTxt ([_ good enough text format _]) is a plain text format for writing structured documents, based on my
 experiences using email, and posting on various sites on the internet using
 markdown. This is an attempt by me to simplify and remove many of reduntant
 parts of markdown. I plan to provide a full spec, and a set of reference
 documents. The other things I plan on abandoning is the restriction of having
-operators limited by ASCII. Since, all document moving forward show be unicode
-aware, there is no reason not to use some newer characters available to us.
+operators limited by ASCII. Since, all document moving forward [* should *] be unicode
+aware, there is no reason not to use some newer characters that are available to us.
 
-However, the core idea is that there generally should be only one way to do
-something and that way should alway have a know representation.
+However, the core idea is that there generally there [* should *] be only one way to do
+something and that way should alway have a known representation.
 
 §§ Why a spec
 
 The point of the spec is two fold. To provide a way of documenenting the format
-and provide an authoritive answer to how the format show behave. Rather then
-relaying on the implementation, this spec should spell things out unambiguously.
+and provide an authoritive answer to how the format should behave. Rather then
+relaying on the implementation, this spec will spell things out unambiguously.
 If some is not spelled out unambiguously then this is a [[bug][report-bug]] in
 this spec.
 
@@ -43,7 +43,7 @@ A [#[line]] is a sequence of zero or more characters other then [@ newline ] or
 [@ carriage-return ], followed by a [[line ending][line-ending]] or by the end
 of a file.
 
-«Note;
+«note;
 
 It is prefered that all documents include an extra [[blank line][blank-line]] at
 the end of the document

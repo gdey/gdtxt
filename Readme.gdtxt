@@ -104,6 +104,8 @@ Current inline-elements are:
 • strong    : \[** **\]
 • strikethrough : \[– –\]
 • underline : \[_ _\]
+• inline code: \[` `\]
+• inline quote: `[" "\]
 • reference : \[[ text ][ reference ]\]
 	[[see references for greater detail][references]]
 • anchor    : \[#[ text ][ reference ]\]

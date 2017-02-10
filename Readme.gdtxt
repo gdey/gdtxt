@@ -10,7 +10,7 @@
 
 gdTxt ([_ good enough text format _]) is a plain text format for writing structured documents, based on my
 experiences using email, and posting on various sites on the internet using
-markdown. This format is my attempt to simplify and remove many of redundancies in markdown. I plan to provide a full specification and a set of reference documents.  The documents will be encoded in [[UTF8][http://utf-8.com]], allowing us to remove the restriction of limiting ourselves to only ASCII characters.
+markdown. This format is my attempt to simplify and remove many of the redundancies in markdown. I plan to provide a full specification and a set of reference documents.  The documents will be encoded in [[UTF8][http://utf-8.com]], allowing us to remove the restriction of limiting ourselves to only ASCII characters.
 
 The core idea is that there should be only one representation per concept. Reducing the number of things one has to remember; making the format (in my opinion) easier to use.
 

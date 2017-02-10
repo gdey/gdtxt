@@ -1,7 +1,7 @@
 «front-matter
-|author : Guatam Dey <gautam.dey77@gmail.com>
-|date   : 10 Oct 2015
-|title  : My simple document format.
+|author: Gautam Dey <gautam.dey77@gmail.com>
+|date: 10 Oct 2015
+|title: My simple document format.
 ;
 »
 
@@ -10,22 +10,13 @@
 
 gdTxt ([_ good enough text format _]) is a plain text format for writing structured documents, based on my
 experiences using email, and posting on various sites on the internet using
-markdown. This is an attempt by me to simplify and remove many of reduntant
-parts of markdown. I plan to provide a full spec, and a set of reference
-documents. The other things I plan on abandoning is the restriction of having
-operators limited by ASCII. Since, all document moving forward [* should *] be unicode
-aware, there is no reason not to use some newer characters that are available to us.
+markdown. This format is my attempt to simplify and remove many of redundancies in markdown. I plan to provide a full specification and a set of reference documents.  The documents will be encoded in [[UTF8][http://utf-8.com]], allowing us to remove the restriction of limiting ourselves to only ASCII characters.
 
-However, the core idea is that there generally there [* should *] be only one way to do
-something and that way should alway have a known representation.
+The core idea is that there should be only one representation per concept. Reducing the number of things one has to remember; making the format (in my opinion) easier to use.
 
 §§ Why a spec
 
-The point of the spec is two fold. To provide a way of documenenting the format
-and provide an authoritive answer to how the format should behave. Rather then
-relaying on the implementation, this spec will spell things out unambiguously.
-If some is not spelled out unambiguously then this is a [[bug][report-bug]] in
-this spec.
+The purpose of the specification is to document the format and provide an authoritative answer to how the format behaves unambiguously. If there are any ambiguous parts, those should be considered a [[bug][report-bug]].
 
 § Preliminaries
 
@@ -33,19 +24,19 @@ this spec.
 
 Any sequence of characters is a valid gdTxt document.
 
-A [#[character]] is a Unicode point. Although come code points (for example,
-combining accents) do not correspond to characters in an intutive sense, all
-code points count as characters for the purposes of this spec.
+A [#[character]] is a Unicode point. Some code points (i.e.,
+combining accents) do not correspond to characters in an intuitive sense, all
+code points count as characters for this spec.
 
 All gdTxt documents are encoded using [[utf8][http://utf-8.com]].
 
-A [#[line]] is a sequence of zero or more characters other then [@ newline ] or
+A [#[line]] is a sequence of zero or more characters other than [@ newline ] or
 [@ carriage-return ], followed by a [[line ending][line-ending]] or by the end
 of a file.
 
 «note;
 
-It is prefered that all documents include an extra [[blank line][blank-line]] at
+It is preferred that all documents include an extra [[blank line][blank-line]] at
 the end of the document
 
 »
@@ -84,19 +75,18 @@ the Unicode classes [* Pc *], [* Pd *], [* Pe *], [* Pf *], [* Po *], or
 
 §§ Tabs
 
-Tabs in lines are not expanded to spaces.
+Tabs in lines will not be expanded into spaces.
 
 §§ Insecure characters
 
-For security reasons, the Unicode characters [* U+0000 *] must be replaced with
-the replacement character ([* U+FFFD *]).
+For security reasons, the Unicode characters [* U+0000 *] [* MUST *] be replaced with the replacement character ([* U+FFFD *]).
 
 § Inline, Line, and Blocks
 
 §§ Inline
 
-Inline statements are statements that can placed in line. There should not be any
-newline characters inside of a inline statement.
+Inline statements are statements that can be placed in line. There should not be any
+newline characters inside of an inline statement.
 
 Current inline-elements are:
 
@@ -107,46 +97,37 @@ Current inline-elements are:
 • inline code: \[` `\]
 • inline quote: `[" "\]
 • reference : \[[ text ][ reference ]\]
-	[[see references for greater detail][references]]
+    [[see references for greater detail][references]]
 • anchor    : \[#[ text ][ reference ]\]
 • insert    :  \[@ reference \]
 
 §§ Line
 
-Line statements start at the start of a line with an identifer. Followed by
-the arguments of the function.
+Line statements start at the start of a line with an identifier. 
 
 1. Section line:
 
-	A section line starts with ([* U+00A7 *]) and is followed by the title of the
-	section.
-	The number of sections markers identified the section level, up to six.
+    A section line starts with ([* U+00A7 *]) and is followed by the title of the section.
+    The number of sections markers identified the section level, up to six.
 
-2. orderd list:
+2. ordered list:
 
-	An ordered list starts with # [* (U+0023) *] and is followed the the list
-	item. The list item can have one or more paragraphs associated with it. Each
-	paragraph is seperated by a blank line, or another list element. Sub ordered
-	lists are delimited by add additional [* # *] symboles.
+    An ordered list starts with # [* (U+0023) *] and is followed the list item. The list item can have one or more paragraphs associated with it. Each paragraph is separated by a blank line or another list element. Sub ordered lists are delimited by add additional [* # *] symbols.
 
-	«Note;
-		One can, also, use 1. and 1.1. etc.. Need to write this part out.
-	»
+    «Note;
+        One can, also, use 1. and 1.1. etc.. Need to write this part out.
+    »
 
-3. unorderd list:
+3. unordered list:
 
-	An ordered list is a line that starts with • and is followed by the title of
-	the list item. The list item can have one or more paragraphs or other block
-	elements associated with it. Additional levels are the number of • characters
-	in the front of the list.
+    An ordered list is a line that starts with • and is followed by the title of the list item. The list item can have one or more paragraphs or other block elements associated with it. Additional levels are the number of • characters in the front of the list.
 
-	In addition if a “•” is followed by [] or [x] it should be treaded as a check
-	list.
+    Besides if a “•” is followed by [] or [x] it should be treated as a check
+    list.
 
-4. horzontal line:
+4. horizontal line:
 
-	three or more “—” at the start of a line will create a horizontal line. Text
-	after the line markers are ignored.
+    Three or more “—” at the start of a line will create a horizontal line. Text after the line-markers are ignored.
 
 
 §§§ Blocks
@@ -154,93 +135,91 @@ the arguments of the function.
 Every block starts with ‘«’ followed by the block type. Each block how tree
 parts.
 
-The first part is the block type. This part ends with the first header seperator
+The first part is the block type. This part ends with the first header separator
 | or the header block end ‘;’.
-The second part is call the header, this is a simple key value structure. Each
-key is seprated from the value via a ‘:’; each key-value pair is seperated with a
+The second part is called the header; this is a simple key-value structure. Each
+key is separated from the value via a ‘:’; each key-value pair is separated with a
 '|'. The header part of a block is terminated with a ';'.
 The final part of a block is the body. It is everything till the closing [* » *].
 
 • Quote :
-	A Quote block allows you to quote some piece of text.
+    A Quote block allows you to quote some piece of text.
 «code
 | lang: gdtxt
 ;
-	«quote
-	;
-	This is a quote
-	»
+    «quote
+    ;
+    This is a quote
+    »
 »
 
 • Code :
-	Allow you insert code, provides syntax hightlighting and numbering.
-	Code blocks everything inside of the body part.
+    Allow you insert code, provides syntax highlighting and numbering.
+    Code blocks everything inside of the body part.
 «code
 | lang: gdtxt
 ;
-	«code
-	| lang : go
-	;
-	package main
-	import ( "fmt" )
-	func main(){
-		fmt.Println("Hello world");
-	}
-	»
+    «code
+    | lang : go
+    ;
+    package main
+    import ( "fmt" )
+    func main(){
+        fmt.Println("Hello world");
+    }
+    »
 
 »
 
 • Front-matter :
-	This is meta data of the document. There should be only one of these.
-	Generally one should merage all of them together, with each merge overwriting
-	other elements. The processor should emit a warning each time an over write
-	occures.
+    This element is metadata for the document. There should be only one of these.
+    One should merge all of them together, with each merge overwriting other elements. The processor should emit a warning each time an overwrite
+    occurs.
 
-	Known attributes:
-	«block;
-	• author : The author is the name of the author in email format i.e.
-		“display name <email@address>”
-	• date   : The date the article was written.
-	• title  : The title of the document. only the first 160 chararcters will be taken.
-	»
+    Known attributes:
+    «block;
+    • Author: The author is the name of the author in email format i.e.
+        “display name <email@address>”
+    • Date: The date the article was written.
+    • Title: The title of the document. Only the first 160 characters will be taken.
+    »
 
 «code
-| lang : gdtxt
+| lang: gdtxt
 ;
-	«front-matter
-	| author : Guatam Dey <gautam.dey77@gmail.com>
-	| date   : 10 Oct 2015
-	| title  : My simple document format.
-	;
-	»
+    «front-matter
+    | author : Guatam Dey <gautam.dey77@gmail.com>
+    | date   : 10 Oct 2015
+    | title  : My simple document format.
+    ;
+    »
 
 »
 
 • block :
-	A block block is a block that allows you to enter some gdtext text as a
-	paragraph. This is an advance feature.
+    A block block is a block that allows you to enter some gdTxt text as a
+    paragraph. 
 
 • include :
-	A an include block allows you to include another file or url, that will be
-	treated as a gdtxt file and then included as a set of rendered paragraphs
-	into the section.
+    An include block allows you to add another file or URL, that will be
+    treated as a gdtxt file and then included in a set of rendered paragraphs
+    into the section.
 
 • comment :
-	A comment block is ignored by the render. It is there to add commentary to
-	the document.
+    The render ignores a comment block. It is there to add commentary to the document.
 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 
 • foo bar
 •• bar
-	This is a paragraph
+    This is a paragraph
 
-	This is another paragraph
-	«quote
-	| attribute: Someone
-	;
-	The greatest things in life cost something.
-	»
+    This is another paragraph
+    «quote
+    | attribute: Someone
+    ;
+    The greatest things in life cost something.
+    »
 
 •• baz
 
@@ -257,7 +236,7 @@ The final part of a block is the body. It is everything till the closing [* » *
 § Section and headers
 
 
-Sections are delimated using ‘#’ or ‘§’ with no white spaces in the begining of the
+Sections are delimited using ‘#’ or ‘§’ with no white spaces at the beginning of the
 line.  There are 6 six section headers.
 
 
@@ -274,15 +253,15 @@ Paragraphs are consective lines of text seperated by a [[blank line][blank-line]
 «code
 |gdTxt
 ;
-	«quote
-	|no-strip
-		;
-			Some text here.
-			blocks can be nested. for quote block.s
-		«quote ;
-		This would be double quote.
-		»
-		»
+    «quote
+    |no-strip
+        ;
+            Some text here.
+            Blocks can be nested. for quote block.s
+        «quote;
+        This would be the double quote.
+        »
+        »
 »
 
 –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -294,5 +273,5 @@ Paragraphs are consective lines of text seperated by a [[blank line][blank-line]
 | spaces          : spaces [@space-unicode]
 ;»
 «refs
-| report-bug : http://github.com/gde/ "Issue Tracker"
+| report-bug: https://github.com/gdey/gdtxt/issues
 ;»

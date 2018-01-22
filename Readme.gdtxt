@@ -95,11 +95,11 @@ Current inline-elements are:
 • strikethrough : \[– –\]
 • underline : \[_ _\]
 • inline code: \[` `\]
-• inline quote: `[" "\]
-• reference : \[[ text ][ reference ]\]
+• inline quote: \[" "\]
+• reference : \[\[ text \]\[ reference \]\]
     [[see references for greater detail][references]]
-• anchor    : \[#[ text ][ reference ]\]
-• insert    :  \[@ reference \]
+• anchor    : \[#\[ text \]\[ reference \]\]
+• insert    : \[@ reference \]
 
 §§ Line
 

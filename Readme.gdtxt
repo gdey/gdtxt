@@ -236,7 +236,7 @@ The final part of a block is the body. It is everything till the closing [* » *
 § Section and headers
 
 
-Sections are delimited using ‘#’ or ‘§’ with no white spaces at the beginning of the
+Sections are delimited using ‘$’ or ‘§’ with no white spaces at the beginning of the
 line.  There are 6 six section headers.
 
 

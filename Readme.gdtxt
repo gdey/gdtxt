@@ -28,10 +28,10 @@ A [#[character]] is a Unicode point. Some code points (i.e.,
 combining accents) do not correspond to characters in an intuitive sense, all
 code points count as characters for this spec.
 
-All gdTxt documents are encoded using [[utf8][http://utf-8.com]].
+All gdTxt documents are encoded using [[ utf8 ][http://utf-8.com]].
 
-A [#[line]] is a sequence of zero or more characters other than [@ newline ] or
-[@ carriage-return ], followed by a [[line ending][line-ending]] or by the end
+A [#[ line ]] is a sequence of zero or more characters other than [@ newline ] or
+[@ carriage-return ], followed by a [[ line ending ][line-ending]] or by the end
 of a file.
 
 «note;
@@ -41,35 +41,35 @@ the end of the document
 
 »
 
-A [#[line ending][line-ending]] is a [@ newline ].
+A [#[ line ending ][line-ending]] is a [@ newline ].
 
 A line containing no characters, or a line containing only [@ spaces ] or
-[@ tabs ], is called a [#[blank line][blank-line]]
+[@ tabs ], is called a [#[ blank line ][blank-line]]
 
 The following definitions of characters classes will be used in this spec:
 
-A [[whitespace character][whitespace-character]] is a [@ space ], [@ tab ],
+A [[ whitespace character ][whitespace-character]] is a [@ space ], [@ tab ],
 [@ newline ], [@ line-tabulation ], [@ form-feed ], or [@ carriage-return ].
 
 [#[ Whitespace ]] is a sequence of one or more
-[[whitespace characters][whitespace-characters]]
+[[ whitespace characters ][whitespace-characters]]
 
 A [#[Unicode whitespace character][unicode-whitespace-character]] is any code
 point in the Unicode [* Zs *] class, or [@ tab ], [@ carriage-return ],
 [@ newline ], or [@ form feed ].
 
-A [#[space]] is [@ space-unicode ]
+A [#[ space ]] is [@ space-unicode ]
 
-A [#[non-whitespace character][non-whitesapce-character]] is any character that
-is not a [[whitespace-character]].
+A [#[ non-whitespace character ][non-whitesapce-character]] is any character that
+is not a [[ whitespace-character ]].
 
-An [#[ASCII punctuation character]] is:
+An [#[ ASCII punctuation character ]] is:
 [* ! *], [* " *], [* # *], [* $ *], [* % *], [* ' *], [* ( *], [* ) *], [* * *],
 [* + *], [* , *], [* - *], [* . *], [* / *], [* : *], [* ; *], [* < *], [* = *],
 [* > *], [* ? *], [* @ *], [* [ *], [* ~ *], [* ] *], [* ^ *], [* _ *], [* ` *],
 [* { *], [* | *], [* } *], or [* \\ *]
 
-a [#[punctuation character]] is an [[ASCII punctuation character]] or anything in
+a [#[ punctuation character ]] is an [[ ASCII punctuation character ]] or anything in
 the Unicode classes [* Pc *], [* Pd *], [* Pe *], [* Pf *], [* Po *], or
 [* Ps *].
 
@@ -137,9 +137,11 @@ parts.
 
 The first part is the block type. This part ends with the first header separator
 | or the header block end ‘;’.
+
 The second part is called the header; this is a simple key-value structure. Each
 key is separated from the value via a ‘:’; each key-value pair is separated with a
 '|'. The header part of a block is terminated with a ';'.
+
 The final part of a block is the body. It is everything till the closing [* » *].
 
 • Quote :

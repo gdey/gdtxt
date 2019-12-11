@@ -90,49 +90,74 @@ newline characters inside of an inline statement.
 
 Current inline-elements are:
 
-• emiphize  : \[* *\]
+• emphasize  : \[* *\]
 • strong    : \[** **\]
-• strikethrough : \[– –\]
+• strike-through : \[– –\]
 • underline : \[_ _\]
-• inline code: \[` `\]
+• inline call-out: \[` `\]
 • inline quote: \[" "\]
+• inline raw string [\ [\\\\] \]
+     no need to escape anything other then \.
+     Also, note that leading and trailing spaces are not trimmed
+• unicode character: \[u0020\]
+    the value is in hex
+• inline code: \[(go:var) corpus \]
+    the first element in the prens is the language
+    if there is a colon following the language it will be the language
+    element type. This is optional. Default is left to the implementation
+    but should be something that makes sense for that language.
 • reference : \[\[ text \]\[ reference \]\]
     [[see references for greater detail][references]]
 • anchor    : \[#\[ text \]\[ reference \]\]
 • insert    : \[@ reference \]
+    Insert will insert the value of the reference into the space. 
+    
+§§§ [#[ References ][ references ]]
+
+A reference is an identifier that can is made up of Letters followed by letters, numbers, [* _ *], [* - *], or [* . *]
+
 
 §§ Line
 
 Line statements start at the start of a line with an identifier. 
 
-1. Section line:
+
+# Section line:
 
     A section line starts with ([* U+00A7 *]) and is followed by the title of the section.
     The number of sections markers identified the section level, up to six.
 
-2. ordered list:
+# ordered list:
 
-    An ordered list starts with # [* (U+0023) *] and is followed the list item. The list item can have one or more paragraphs associated with it. Each paragraph is separated by a blank line or another list element. Sub ordered lists are delimited by add additional [* # *] symbols.
+    An ordered list starts with # [* (U+0023) *] and is followed the list item. 
+    The list item can have one or more paragraphs or block elements associated with it. 
+    Each paragraph or block element is separated by a blank line or 
+    another list element. 
+
+    Sub ordered lists are delimited by add additional [* # *] symbols.
+
+    Two blank lines terminate the list, or encountering a section header,
+    or a different list type.
 
     «Note;
         One can, also, use 1. and 1.1. etc.. Need to write this part out.
     »
 
-3. unordered list:
+# unordered list:
 
     An ordered list is a line that starts with • and is followed by the title of the list item. The list item can have one or more paragraphs or other block elements associated with it. Additional levels are the number of • characters in the front of the list.
 
     Besides if a “•” is followed by [] or [x] it should be treated as a check
     list.
 
-4. horizontal line:
+# horizontal line:
 
     Three or more “—” at the start of a line will create a horizontal line. Text after the line-markers are ignored.
 
 
 §§§ Blocks
 
-Every block starts with ‘«’ followed by the block type. Each block how tree
+Every block starts with ‘«’ followed by the block type. Each block has three
 parts.
 
 The first part is the block type. This part ends with the first header separator
@@ -245,7 +270,7 @@ line.  There are 6 six section headers.
 § Paragraphs
 
 
-Paragraphs are consective lines of text seperated by a [[blank line][blank-line]].
+Paragraphs are consecutive lines of text separated by a [[blank line][blank-line]].
 
 
 § Blocks
